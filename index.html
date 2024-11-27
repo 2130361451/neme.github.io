@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欧乐佳的个人简介</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 动态背景 */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background span {
+            position: absolute;
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* 主体内容 */
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .favorite-games {
+            margin-top: 1rem;
+        }
+
+        .favorite-games span {
+            display: inline-block;
+            background: #0072ff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: 1rem;
+        }
+
+        /* 鼠标交互效果 */
+        .interactive-circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: ripple 1s ease-out infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 动态背景 -->
+    <div class="background"></div>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        <h1>你好，我是欧乐佳</h1>
+        <p>学历：大专</p>
+        <p>兴趣爱好：</p>
+        <ul>
+            <li>喜欢玩游戏</li>
+            <li>喜欢有趣编程</li>
+            <li>最爱睡觉！</li>
+        </ul>
+        <div class="favorite-games">
+            <p>最爱的游戏：</p>
+            <span>三角洲行动</span>
+            <span>金铲铲之战</span>
+        </div>
+    </div>
+
+    <!-- 动态交互效果 -->
+    <div id="circle-container"></div>
+
+    <script>
+        // 动态背景生成
+        const background = document.querySelector('.background');
+        for (let i = 0; i < 100; i++) {
+            const span = document.createElement('span');
+            const size = Math.random() * 10 + 5;
+            span.style.width = `${size}px`;
+            span.style.height = `${size}px`;
+            span.style.left = `${Math.random() * 100}vw`;
+            span.style.top = `${Math.random() * 100}vh`;
+            span.style.animationDelay = `${Math.random() * 10}s`;
+            span.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            background.appendChild(span);
+        }
+
+        // 鼠标互动效果
+        document.body.addEventListener('mousemove', (e) => {
+            const circle = document.createElement('div');
+            circle.className = 'interactive-circle';
+            circle.style.width = '50px';
+            circle.style.height = '50px';
+            circle.style.left = `${e.pageX - 25}px`;
+            circle.style.top = `${e.pageY - 25}px`;
+            document.body.appendChild(circle);
+            setTimeout(() => circle.remove(), 1000);
+        });
+    </script>
+</body>
+</html>
