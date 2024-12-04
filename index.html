@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智能汽车231—姚望（信息工程第一会长）</title>
+    <title>222陈子豪少爷的个人简介</title>
     <style>
         /* 全局样式 */
         * {
@@ -85,24 +85,17 @@
             font-size: 1rem;
         }
 
-        /* 鼠标交互效果 */
-        .interactive-circle {
-            position: absolute;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: ripple 1s ease-out infinite;
+        /* 图片样式 */
+        .photos {
+            margin-top: 1.5rem;
         }
 
-        @keyframes ripple {
-            0% {
-                transform: scale(0.5);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(2.5);
-                opacity: 0;
-            }
+        .photos img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin: 0 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .message {
@@ -119,14 +112,13 @@
 
     <!-- 主体内容 -->
     <div class="container">
-        <h1>你好，智能汽车231—姚望（信息工程第一会长）</h1>
-        <p>学历：高等学府</p>
+        <h1>你好，我是222陈子豪少爷</h1>
+        <p>学历：大专</p>
         <p>兴趣爱好：</p>
         <ul>
             <li>喜欢玩游戏</li>
             <li>喜欢自言自语地编程</li>
             <li>超级爱睡觉！</li>
-            <li>喜欢小妹妹，嘿嘿！</li>
         </ul>
         <div class="favorite-games">
             <p>最爱的游戏：</p>
@@ -135,19 +127,18 @@
         </div>
         <div class="contact-info">
             <p>联系方式：</p>
-            <span>手机号: 17375224073</span>
-            <span>微信: yw654065144（加我姚大会长必须是女孩子，我就热爱28岁的少妇）</span>
+            <span>QQ: 3264594512</span>
+            <span>微信: AOlj141130</span>
+        </div>
+        <div class="photos">
+            <p>成长中的陈子豪：</p>
+            <img src="1.png" alt="幼年照片">
+            <img src="2.png" alt="中年照片">
         </div>
         <div class="message">
-            留言：不要看我，多看一眼都会爆炸！，我是新时代蔡徐坤代言人
-        </div>
-        <div class="message">
-           我会唱，跳，rap，篮球，赶快和我一起动起来吧
+            留言：不要看我，多看一眼都会爆炸！
         </div>
     </div>
-
-    <!-- 动态交互效果 -->
-    <div id="circle-container"></div>
 
     <script>
         // 动态背景生成
@@ -163,18 +154,6 @@
             span.style.animationDuration = `${Math.random() * 5 + 5}s`;
             background.appendChild(span);
         }
-
-        // 鼠标互动效果
-        document.body.addEventListener('mousemove', (e) => {
-            const circle = document.createElement('div');
-            circle.className = 'interactive-circle';
-            circle.style.width = '50px';
-            circle.style.height = '50px';
-            circle.style.left = `${e.pageX - 25}px`;
-            circle.style.top = `${e.pageY - 25}px`;
-            document.body.appendChild(circle);
-            setTimeout(() => circle.remove(), 1000);
-        });
     </script>
 </body>
 </html>
